@@ -1,46 +1,39 @@
-# rs-dev
+# ccstack
 
-Personal Claude Code skills distilled from 34K+ prompts across 577 projects.
+My Claude Code stack. 13 slash commands for the workflows I actually use, distilled from 34K+ prompts.
 
 ## Install
 
 ```bash
-cd ~/Code/rs-dev && ./setup
+./setup
 ```
 
-Symlinks all `rs-*.md` files into `~/.claude/commands/`. Idempotent — safe to re-run.
+## Commands
 
-## Skills
+**Daily drivers**
 
-| Skill | Purpose | Tier |
-|-------|---------|------|
-| `/rs-check` | Pre-merge quality gates (typecheck + lint + build in parallel) | 1 |
-| `/rs-review` | Expert-routed code review (auto-dispatches specialist agents) | 1 |
-| `/rs-test` | Test improvement — fix, add, or improve tests | 1 |
-| `/rs-arch` | Architecture review against project conventions | 1 |
-| `/rs-debug` | Structured root-cause debugging (no fixes without investigation) | 1 |
-| `/rs-simplify` | Over-engineering detection and removal | 2 |
-| `/rs-ship` | Session completion — close beads, commit, push, sync | 2 |
-| `/rs-explore` | CodeGraph-powered codebase exploration | 2 |
-| `/rs-release` | Cross-project release readiness validation | 2 |
-| `/rs-contract` | Go struct vs TS interface contract validation | 2 |
-| `/rs-deps` | Dependency and import analysis | 3 |
-| `/rs-standup` | Standup report from git history + beads | 3 |
-| `/rs-onboard` | Codebase onboarding guide generator | 3 |
+| Command | What it does |
+|---------|-------------|
+| `/rs-check` | Typecheck + lint + build in parallel. Auto-fixes formatting. |
+| `/rs-review` | Routes changed files to the right specialist agent. |
+| `/rs-test [fix\|add\|improve]` | Fix broken tests, add missing coverage, or both. |
+| `/rs-debug <error>` | Root-cause investigation. No fixes without evidence. |
+| `/rs-simplify` | Find and remove over-engineering. |
 
-## Design
+**Before shipping**
 
-- **Pure Markdown** — no build step, no runtime dependencies
-- **Symlinks from source** — edit here, changes take effect immediately
-- **gstack-inspired patterns** — Iron Laws, Fix-First, phased workflows, structured output
-- **Completion status protocol** — DONE / DONE_WITH_CONCERNS / BLOCKED
+| Command | What it does |
+|---------|-------------|
+| `/rs-arch [module]` | Architecture review — layers, dependencies, god files. |
+| `/rs-contract` | Validate Go structs match TS interfaces. Catches PII leaks. |
+| `/rs-release` | Full pre-release checklist — gates, blockers, migrations, env vars. |
+| `/rs-ship` | Close beads, commit, push, sync. Land the plane. |
 
-## Patterns Used
+**When you need context**
 
-Each skill follows consistent prompt engineering patterns:
-
-1. **Iron Law** — core principle stated upfront
-2. **Stop/don't-stop conditions** — clear automation boundaries
-3. **Fix-First** — AUTO-FIX trivial issues, ASK for judgment calls
-4. **Verification gates** — no completion claims without evidence
-5. **Structured output** — consistent report format per skill
+| Command | What it does |
+|---------|-------------|
+| `/rs-explore <question>` | CodeGraph-powered codebase search with call chain tracing. |
+| `/rs-deps` | Stale packages, circular imports, layer violations. |
+| `/rs-standup` | Generate standup from git log + beads. |
+| `/rs-onboard [module]` | Explain a module: purpose, structure, patterns, pitfalls. |
