@@ -37,3 +37,12 @@ My Claude Code stack. 13 slash commands for the workflows I actually use, distil
 | `/rs-deps` | Stale packages, circular imports, layer violations. |
 | `/rs-standup` | Generate standup from git log + beads. |
 | `/rs-onboard [module]` | Explain a module: purpose, structure, patterns, pitfalls. |
+
+## Design
+
+- **Pure Markdown** — no build step, no runtime dependencies
+- **Symlinks from source** — edit here, changes take effect immediately
+- **Iron Laws** — each skill states its core principle upfront
+- **Fix-First** — AUTO-FIX trivial issues, ASK for judgment calls
+- **Verification gates** — no completion claims without evidence
+- **Structured output** — DONE / DONE_WITH_CONCERNS / BLOCKED
