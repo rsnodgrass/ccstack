@@ -1,6 +1,6 @@
 # ccstack
 
-My Claude Code stack. 13 slash commands for the workflows I actually use, distilled from 34K+ prompts.
+My Claude Code stack. 16 slash commands for the workflows I actually use, distilled from 34K+ prompts.
 
 ## Install
 
@@ -46,3 +46,11 @@ My Claude Code stack. 13 slash commands for the workflows I actually use, distil
 - **Fix-First** — AUTO-FIX trivial issues, ASK for judgment calls
 - **Verification gates** — no completion claims without evidence
 - **Structured output** — DONE / DONE_WITH_CONCERNS / BLOCKED
+
+**Deep audit (blacklight)**
+
+| Command | What it does |
+|---------|-------------|
+| `/rs-blacklight-audit` | Reveal hidden debt: magic numbers, TODOs, unfinished code, stubs. |
+| `/rs-blacklight-plan` | Convert findings to tracked beads with dependencies. |
+| `/rs-blacklight-fix` | Team of parallel agents executes beads in optimal order. |
