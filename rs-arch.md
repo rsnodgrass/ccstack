@@ -65,6 +65,13 @@ Check for each of the following violations:
 - Scan `apps/` for duplicated logic across multiple apps.
 - If the same struct, function, or pattern appears in 2+ apps, flag it as a candidate for extraction to `packages/`.
 
+### Search Before Building
+Before approving any new infrastructure, concurrency pattern, scheduling mechanism, or build tooling:
+- **Check runtime/framework built-ins first** — does the runtime (bun/node/deno/go) already provide this?
+- **Check existing best practices** — is there a well-established pattern for this problem in the current ecosystem?
+- **Flag hand-rolled infrastructure** — >20 lines of infrastructure code without evidence of prior art search is a MEDIUM violation.
+- **The eureka exception** — if first-principles reasoning reveals the conventional approach is wrong for this use case, that's valid. Flag it as an intentional divergence, not a violation, with documented reasoning.
+
 ## Phase 4: CodeGraph Analysis
 
 **Skip this phase if `.codegraph/` does not exist.**

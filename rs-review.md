@@ -114,6 +114,16 @@ For each finding:
 - **AUTO-FIX**: formatting, unused imports, simple lint, missing error wraps → apply directly
 - **ASK**: security issues, architectural concerns, design decisions → present to user
 
+### Reinvention Check (ALWAYS RUN)
+
+Before approving any new infrastructure, patterns, or non-trivial implementations, verify the author searched first:
+- **Runtime/framework built-ins** — is there a built-in that already does this? (e.g., hand-rolled semaphore vs `test.concurrent()`)
+- **Battle-tested libraries** — did someone hand-roll 50 lines when a well-maintained package handles this?
+- **Standard patterns** — is this a known solved problem (auth, caching, deploy pipelines, error handling) with an established best practice?
+- **>20 lines of infrastructure code** without evidence of prior search is a red flag
+
+**The exception**: if first-principles reasoning reveals the conventional approach is fundamentally wrong for this use case, that's a eureka moment — flag it as such with the reasoning, don't reject it as reinvention.
+
 ### Over-Engineering Check (ALWAYS RUN)
 
 Regardless of file types, check ALL changed code for:

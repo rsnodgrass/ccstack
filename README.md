@@ -46,6 +46,7 @@ My Claude Code stack. 16 slash commands for the workflows I actually use, distil
 - **Fix-First** — AUTO-FIX trivial issues, ASK for judgment calls
 - **Verification gates** — no completion claims without evidence
 - **Structured output** — DONE / DONE_WITH_CONCERNS / BLOCKED
+- **Search before building** — before designing any non-trivial solution, search for what exists. The 1000x engineer's first instinct is "has someone already solved this?" not "let me design it from scratch." But stay alert for eureka moments — sometimes first-principles reasoning reveals the tried-and-true is wrong, and that's where 11/10 products come from
 
 **Deep audit (blacklight)**
 

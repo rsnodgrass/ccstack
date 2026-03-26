@@ -70,6 +70,9 @@ service -> repository -> DB when service -> DB is sufficient. Each layer must ju
 ### 10. Import Bloat
 Pulling in a library dependency for one function that is 5-10 lines to write inline. The dependency carries update burden, security surface, and bundle size for minimal value.
 
+### 11. Reinventing the Wheel
+Hand-rolling 20+ lines of infrastructure code (concurrency, scheduling, caching, auth, test runners, build tooling) when the runtime or framework has a built-in or there's a battle-tested solution. The delta between a hand-rolled semaphore and `test.concurrent()` is the difference between mass and elegance. **Search before building.**
+
 ---
 
 ## Phase 3: Simplification Suggestions

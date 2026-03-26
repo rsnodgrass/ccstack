@@ -13,7 +13,6 @@ allowed-tools:
   - Edit
   - Write
   - Agent
-  - Skill
 ---
 
 # /rs-add-coverage — Drive Code Coverage to 85%+
@@ -23,10 +22,18 @@ coverage exceeds 85%, using expert test agents and making structural changes as 
 
 ## Execution
 
-Run the following skill invocation:
+Run the ralph-loop setup script directly (it's hidden from the Skill tool):
 
+```bash
+RALPH_LOOP_SCRIPT=$(find ~/.claude/plugins/cache/claude-plugins-official/ralph-loop -name "setup-ralph-loop.sh" -path "*/scripts/*" 2>/dev/null | head -1)
 ```
-/ralph-loop:ralph-loop "Our code coverage is abysmally low, continue to add meaningful tests that would catch actual bugs, edge cases, failure modes, etc until the code coverage is over 85%. No test theater. Use expert test agents, experts in test harness. Keep running our tests and checking for test coverage. This will likely require some structural changes to make things better testable. Don't just test what we have implemented, test conceptually how various components should work in practice." $ARGUMENTS
+
+Then invoke it:
+
+```bash
+"$RALPH_LOOP_SCRIPT" "Our code coverage is abysmally low, continue to add meaningful tests that would catch actual bugs, edge cases, failure modes, etc until the code coverage is over 85%. No test theater. Use expert test agents, experts in test harness. Keep running our tests and checking for test coverage. This will likely require some structural changes to make things better testable. Don't just test what we have implemented, test conceptually how various components should work in practice." --completion-promise "Coverage exceeds 85% across all packages" $ARGUMENTS
 ```
+
+Then work on the task as described in the ralph-loop output.
 
 Pass through any extra arguments (e.g. `--max-iterations`, `--completion-promise`) from the user.
