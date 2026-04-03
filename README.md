@@ -96,6 +96,18 @@ Auto-reverts anything that fails any lock. The experiment log tracks all attempt
 
 **When to re-run `/golden-artifacts`:** after any intentional behavior change, run with `REGENERATE=1` to refreeze the baseline before the next optimization pass.
 
+## Built-in Claude Code Commands
+
+Commands baked into Claude Code that are worth knowing:
+
+| Command / Keyword | What it does |
+|-------------------|-------------|
+| `/loop` | Schedule Claude to run for up to a week. Auto code review, auto rebase, shepherd PRs to production. Runs while you sleep. |
+| `/batch` | Fan out to hundreds of parallel agents. Interviews you, then spawns as many as needed. |
+| `/btw` | Ask a side question without interrupting the agent. It answers and keeps going. |
+| `/branch` | Fork a session mid-task. Resume the original with `claude -r [id]`. |
+| `think` | Type in your prompt to set effort to high — Claude reasons before acting instead of jumping to code. |
+
 ## Design
 
 - **Pure Markdown** — no build step, no runtime dependencies
